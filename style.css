@@ -1,0 +1,83 @@
+#game{
+    margin: auto;
+    width: 300px;
+    height: 500px;
+    border: 2px solid rgb(25, 185, 38);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+#boss{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(155, 223, 146);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+#enemy{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(223, 92, 92);
+    animation: myMove 2s infinite;
+    position: relative;
+    top: 500px;
+    
+   
+}
+
+@keyframes myMove {
+   0%  {top: 0px};
+   100% {top: 500px};   
+}
+.pad-box {
+    margin-top: 12px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+.game-button {
+    background-color: rgb(236, 176, 63);
+    padding: 0.5rem 0.8rem;
+    outline: none;
+    border: none;
+}
+
+#game-status{
+    margin-bottom: 0px;
+    margin: auto;
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+}
+
+#score{
+    width: 100px;
+    height: 30px;
+    background-color: rgb(236, 176, 63);
+    color: white;
+    margin-left: 12px;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    margin-bottom: 3px;
+}
+
+#status{
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    font-size: 20px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+#start{
+    padding: 0.5rem;
+    position: absolute;
+    top: 260px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
