@@ -5,7 +5,8 @@ var leftPad = document.getElementById("left-pad");
 var rightPad = document.getElementById("right-pad");
 var bossmove = 0;
 
-function moveLeft (){ //CONTROLS LEFT MOVEMENT
+//CONTROLS LEFT MOVEMENT
+function moveLeft (){ 
     if(bossmove >= 200){
         bossmove = -100;
     }
@@ -14,8 +15,8 @@ function moveLeft (){ //CONTROLS LEFT MOVEMENT
 }
 leftPad.onclick = moveRight;
  
-
-function moveRight (){ //CONTROLS RIGHT MOVEMENT
+//CONTROLS RIGHT MOVEMENT
+function moveRight (){ 
     if(bossmove <= 0){
         bossmove = 300;
     }
@@ -24,6 +25,7 @@ function moveRight (){ //CONTROLS RIGHT MOVEMENT
 }
 rightPad.onclick = moveLeft;
 
+//Enemy Move On HORIZONTAL AXIS & VERTICAL AXIS
 var enemyMove;
 enemyMove = 0;
 function  randomEnemy(){
@@ -34,32 +36,22 @@ function  randomEnemy(){
 enemy.onanimationiteration = randomEnemy;
 
 
-var topCount = 0;
-function topMove(){
-    topCount += 1;
-    if(topCount >= 2){
-        topCount = 0;
-    }
-    document.getElementById("test").innerHTML = topCount;
-}
-setInterval(topMove, 961.50);
-
 //GAME OVER FUNCTION
 function over(){
-    if(enemyMove==bossmove && topCount == 1){
+    var enemyTop = parseInt(window.getComputedStyle(enemy).getPropertyValue("top"));
+    if(enemyMove==bossmove && enemyTop < 500 && enemyTop > 300){
         enemy.style.position = "initial";
         document.getElementById("status").innerHTML ="Game Over" + "<br>" + "Your Score is: " + mark ;;
         clearInterval(markInterval);   
         document.getElementById("game").style.borderColor = "red";       
         start.style.display = "initial";
-
     }
 }
+setInterval(over, 1);
 
 //MARK AWARDING FUNCTION
 var mark = 0;
 score.innerHTML = "Scores: " + mark;
-setInterval(over, 1);
 function markFunc(){    
     mark+=1;
     var score = document.getElementById("score");
@@ -75,3 +67,11 @@ function startFunc(){
 var start = document.getElementById("start");
 start.style.display = "none";
 start.onclick = startFunc;
+
+
+// TOUCHPAD CONTROLS
+var leftTouch = document.getElementById("leftTouch");
+leftTouch.ontouchstart = moveRight;
+
+var rightTouch = document.getElementById("rightTouch");
+rightTouch.ontouchstart = moveLeft;
