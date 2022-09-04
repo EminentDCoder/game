@@ -41,7 +41,7 @@ function over(){
     var enemyTop = parseInt(window.getComputedStyle(enemy).getPropertyValue("top"));
     if(enemyMove==bossmove && enemyTop < 500 && enemyTop > 300){
         enemy.style.position = "initial";
-        document.getElementById("status").innerHTML ="Game Over" + "<br>" + "Your Score is: " + mark ;;
+        document.getElementById("status").innerHTML ="Game Over" + "<br>" + "Score: " + mark ;;
         clearInterval(markInterval);   
         document.getElementById("game").style.borderColor = "red";       
         start.style.display = "initial";
